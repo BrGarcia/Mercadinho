@@ -1,11 +1,18 @@
+import java.util.Scanner;
 /**
- * @author Bruno Garcia 029141072
- * @author Tamires Ferreira MATRICULA
- *
+ * @author Bruno Garcia 	Matricula: 029141072
+ * @author Tamires Ferreira Matricula: 029131052
  */
 public class CaixaRegistradora {
+		
+	private static Scanner scanner;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+		scanner = new Scanner(System.in);
+		System.out.println("MERCADINHO BT");
+		System.out.println("Digite a forma de desconto: ");
+		String desconto = scanner.nextLine();
+		
 		//INSIRINDO OS PROTUDOS NO "SISTEMA"
 		Produto cafe = new Produto("Café Santa Clara", 4.29);
 		Produto arroz = new Produto("Arroz Tio João", 2.11);
@@ -21,8 +28,12 @@ public class CaixaRegistradora {
 		venda.adicionarProduto(arroz);
 		//REMOVENDO UM ELEMENTO DO "CARRINHO"
 		venda.removerProduto(macarrao);
-		//ATE AQUI TA OK.
 		
+		//APLICANDO DESCONTO
+		DescontoFactory.nomeDoDesconto = desconto; //Qual a politica de desconto aplicar
+		venda.precoDoCarrinhoComDesconto = 
+				DescontoFactory.getInstance().getEstrategiaDesconto().calculaDesconto(venda);
+		System.out.println("Valor com desconto é de R$"+ venda.precoDoCarrinhoComDesconto);
 	}
 
 }

@@ -1,7 +1,11 @@
 import java.util.ArrayList;
-
+/**
+ * @author Bruno Garcia 	Matricula: 029141072
+ * @author Tamires Ferreira Matricula: 029131052
+ */
 public class Venda {
 	public double precoDoCarrinho;
+	public double precoDoCarrinhoComDesconto;
 	
 	private ArrayList<Produto> carrinhoDeCompras = new ArrayList<Produto>();
 	
