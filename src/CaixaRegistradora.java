@@ -30,7 +30,7 @@ public class CaixaRegistradora {
 		venda.removerProduto(macarrao);
 		
 		//APLICANDO DESCONTO
-		DescontoFactory.setNomeDoDesconto(desconto); //Qual a politica de desconto aplicar
+		DescontoFactory.setNomeDoDesconto(desconto); 
 		venda.setPrecoDoCarrinhoComDesconto(DescontoFactory.getInstance().getEstrategiaDesconto().calculaDesconto(venda)); 
 		System.out.println("Valor com desconto é de R$"+ venda.getPrecoDoCarrinhoComDesconto());
 	}
