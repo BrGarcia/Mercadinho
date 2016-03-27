@@ -37,6 +37,12 @@ public class Venda {
 	public void setCarrinhoDeCompras(ArrayList<Produto> carrinhoDeCompras) {
 		this.carrinhoDeCompras = carrinhoDeCompras;
 	}
+	public double getPrecoDoCarrinhoComDesconto() {
+		return precoDoCarrinhoComDesconto;
+	}
+	public void setPrecoDoCarrinhoComDesconto(double precoDoCarrinhoComDesconto) {
+		this.precoDoCarrinhoComDesconto = precoDoCarrinhoComDesconto;
+	}
 	
 	
 	

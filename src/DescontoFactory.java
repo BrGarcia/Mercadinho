@@ -29,6 +29,10 @@ public class DescontoFactory {
 		
 		return this.precoComDesconto;
 	}
+
+	public static void setNomeDoDesconto(String nomeDoDesconto) {
+		DescontoFactory.nomeDoDesconto = nomeDoDesconto;
+	}
 	
 	
 	
