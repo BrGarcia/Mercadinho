@@ -6,9 +6,13 @@ import java.util.ArrayList;
 public class Venda {
 	public double precoDoCarrinho;
 	public double precoDoCarrinhoComDesconto;
+	protected String politicaDesconto;
 	
 	private ArrayList<Produto> carrinhoDeCompras = new ArrayList<Produto>();
-	
+
+	public Venda(String politicaDesconto) {
+		this.politicaDesconto = politicaDesconto;
+	}
 	public void adicionarProduto(Produto P){
 		carrinhoDeCompras.add(P);
 		precoDoCarrinho += P.getPrecoPodruto();
@@ -37,14 +41,24 @@ public class Venda {
 	public void setCarrinhoDeCompras(ArrayList<Produto> carrinhoDeCompras) {
 		this.carrinhoDeCompras = carrinhoDeCompras;
 	}
-	public double getPrecoDoCarrinhoComDesconto() {
+	public double getPrecoDoCarrinhoComDesconto() throws InstantiationException, IllegalAccessException, ClassNotFoundException{
+		DescontoFactory.setNomeDoDesconto(this.getPoliticaDesconto()); 
+		setPrecoDoCarrinhoComDesconto(DescontoFactory.getInstance().getEstrategiaDesconto().calculaDesconto(this)); 
 		return precoDoCarrinhoComDesconto;
 	}
+	
 	public void setPrecoDoCarrinhoComDesconto(double precoDoCarrinhoComDesconto) {
 		this.precoDoCarrinhoComDesconto = precoDoCarrinhoComDesconto;
 	}
+	public String getPoliticaDesconto() {
+		return politicaDesconto;
+	}
+	public void setPoliticaDesconto(String politicaDesconto) {
+		this.politicaDesconto = politicaDesconto;
+	}
 	
 	
+		
 	
 	
 	

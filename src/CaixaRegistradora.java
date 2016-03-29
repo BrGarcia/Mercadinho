@@ -20,7 +20,8 @@ public class CaixaRegistradora {
 		Produto macarrao = new Produto("Macarrão Fortaleza", 2.89);
 		
 		//CRIANDO UMA VENDA
-		Venda venda = new Venda();
+		Venda venda = new Venda(desconto); //passando a string que diz qual é o desconto
+		
 		//ADICIONANDO DETERMINADOS PRODUTOS AO CARRINHO DE COMPRAS
 		venda.adicionarProduto(macarrao);
 		venda.adicionarProduto(feijao);
@@ -30,8 +31,6 @@ public class CaixaRegistradora {
 		venda.removerProduto(macarrao);
 		
 		//APLICANDO DESCONTO
-		DescontoFactory.setNomeDoDesconto(desconto); 
-		venda.setPrecoDoCarrinhoComDesconto(DescontoFactory.getInstance().getEstrategiaDesconto().calculaDesconto(venda)); 
 		System.out.println("Valor com desconto é de R$"+ venda.getPrecoDoCarrinhoComDesconto());
 	}
 
